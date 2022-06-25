@@ -2,7 +2,7 @@
 https://www.runoob.com/sqlite/sqlite-python.html
 '''
 import sqlite3
-#2022/06/25
+
 conn = sqlite3.connect('user.db')  #用sqlite3去連結user.db，如果沒建立user.db會自動建立
 print ("資料庫打開成功")
 cursor = conn.cursor()  #連接游標
