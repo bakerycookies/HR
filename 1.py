@@ -1,5 +1,4 @@
 '''
-2022/06/25
 https://github.com/opencv/opencv/tree/master/data/haarcascades
 
 https://www.jianshu.com/p/881d7194267d
