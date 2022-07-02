@@ -1,6 +1,33 @@
+---------- update python 2.7 to 3.8
 https://itheo.tech/install-python-38-on-a-raspberry-pi
 
+sudo apt-get update
+sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev
 
+wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
+tar xf Python-3.8.0.tar.xz
+cd Python-3.8.0
+./configure --enable-optimizations --prefix=/usr
+make
+
+sudo make altinstall
+
+cd ..
+sudo rm -r Python-3.8.0
+rm Python-3.8.0.tar.xz
+. ~/.bashrc
+
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
+
+python -V
+
+sudo pip install django
+django-admin startproject snail
+python3 manage.py runserver 0.0.0.0:8000
+http://192.168.1.106:8000/
+
+
+---------- set pip3 env --------------------
 sudo apt-get update
 sudo apt-get install cmake
 pip3 install opencv-python==4.5.1.48
@@ -17,9 +44,5 @@ sudo apt-get install espeak -y
 
 winscp -> home\pi\python-openCV
 vnc ->  
-python3 3.py
+python3 3-pi.py
 
-sudo pip3 install django
-django-admin startproject snail
-python3 manage.py runserver 0.0.0.0:8000
-http://192.168.1.106:8000/
