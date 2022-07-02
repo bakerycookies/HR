@@ -1,0 +1,25 @@
+https://itheo.tech/install-python-38-on-a-raspberry-pi
+
+
+sudo apt-get update
+sudo apt-get install cmake
+pip3 install opencv-python==4.5.1.48
+pip3 install opencv-contrib-python==4.5.1.48
+sudo apt-get install libhdf5-dev libatlas-base-dev libjasper-dev libqt4-test libqtgui4 -y
+sudo apt-get update -y
+pip3 install --upgrade numpy
+sudo apt-get install fonts-noto-cjk
+sudo apt-get install build-essential libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg-dev libswscale-dev libtiff5-dev -y
+sudo apt-get update -y
+pip3 install pyttsx3
+pip3 install pyperclip
+sudo apt-get install espeak -y
+
+winscp -> home\pi\python-openCV
+vnc ->  
+python3 3.py
+
+sudo pip3 install django
+django-admin startproject snail
+python3 manage.py runserver 0.0.0.0:8000
+http://192.168.1.106:8000/
