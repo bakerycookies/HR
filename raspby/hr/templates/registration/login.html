@@ -5,8 +5,17 @@
 <div class="container" style="margin-top: 50px; width: 80%;">
     <div class="card p-3 border-dark">
         <a class="btn btn-secondary" style="cursor: default;"><i class="fas fa-lock"></i>&nbsp; RESTRICTED ACCESS</a>
-        <form>
-
+        <form method="POST" autocomplete="off" novalidate>
+            {% csrf_token %}
+            <div class="form-group input-group-sm mb-3 mt-5">
+                <label class="form-label label-login">Username</label>
+                <input type="text" class="from-control" name="username" id="username">
+            </div>
+            <div class="form-group input-group-sm mb-3 mt-4">
+                <label class="form-label label-login">Password</label>
+                <input type="password" class="from-control" name="password" id="password">
+            </div>
+            <input class="btn btn-secondary btn-sm mt-3" type="submit" value="Enter" id = "btn-enter">
         </form>
     </div>
 </div>
