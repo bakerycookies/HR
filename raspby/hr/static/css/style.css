@@ -1,0 +1,30 @@
+/* Start configuration */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Keep the footer always down */
+.wrapper{
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#footer,
+.push{
+    height: 50px;
+}
+
+/* #Buttons in navbar */
+#btn-nav {
+    width: 90px;
+    float: right;
+    margin-right: 25px;
+}
+
+/* Button Enter on login.html */
+#btn-enter {
+    width: 90px;
+}
