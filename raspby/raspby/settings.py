@@ -122,7 +122,8 @@ STATIC_URL = '/static/'
 
 # login
 LOGIN_REDIRECT = 'backend'
-LOGOUT_REDIRECT = 'fronted'
+# LOGOUT_REDIRECT = 'forntend'
+LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

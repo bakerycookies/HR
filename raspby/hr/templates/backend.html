@@ -3,6 +3,14 @@
 <!-- Title on browser tab -->
 {% block title %} Backend {% endblock title %}
 
+<!-- Footer -->
+{% block footer %} class="text-danger" {% endblock footer %}
+
+<!-- Button in navbar -->
+{% block nav-btn %}
+    <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm text-light border-light" id="btn-nav">Logout</a>
+{% endblock nav-btn %}
+
 <!-- Page content -->
 {% block content %}
 <h1 class="container text-danger" 
