@@ -16,3 +16,5 @@ python .\manage.py migrate
 python .\manage.py runserver
 settings.py -> ALLOWED_HOSTS = ['*']
 python .\manage.py runserver 0.0.0.0:80
+
+pip install -U django-jazzmin
