@@ -4,6 +4,7 @@ https://getbootstrap.com/docs/5.2/getting-started/introduction/
 https://cdnjs.com/libraries/font-awesome
 https://icon-icons.com/
 https://releases.jquery.com/
+https://datatables.net/
 
 --------------------------------------------------------
 
