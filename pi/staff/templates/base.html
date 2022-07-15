@@ -28,7 +28,13 @@
                         {% block navbar-content %}{% endblock navbar-content %}
                     </a>
                 </div>
-                <!-- create a input outside -->
+                <!-- input search outside -->
+                <div class="d-flex" style="margin-right: 25px">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control" type="search" id="search" placeholder="Live search..." aria-label="Search">
+                        <a href="{% url 'home' %}" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i></a>
+                    </div>
+                </div>
             </nav>
         </header>
         <!-- block content (Root) -->
@@ -65,10 +71,15 @@
         bSort: true,
 
         //Disable colums with specific filter A to Z, Z to A
-        "columnDefs": [{
-            "targets": [4, 5],
-            "orderable": false
-        }]
+        // "columnDefs": [{
+        //     "targets": [4, 5],
+        //     "orderable": false
+        // }]
+    });
+    //Enable Searchbox Outside
+    var newSearch = $("#example").DataTable();
+    $('#search').keyup(function() {
+        newSearch.search($(this).val()).draw();
     })
  </script>
  
