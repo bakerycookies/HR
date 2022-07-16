@@ -14,10 +14,9 @@
     <!-- FontAwsome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <!-- Datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <!-- Static CSS -->
     <link href={% static "css/style.css" %} rel="stylesheet">
-
     <title>Employees</title>
 </head>
 <body>
@@ -57,10 +56,8 @@
  <!-- jquery -->
  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  <!-- Datatables JS-->
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
- <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/datatables.min.js"></script>
-
+ <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
  <!-- Datatables script -->
  <script>
     $('#example').DataTable({
@@ -78,82 +75,6 @@
         //     "targets": [4, 5],
         //     "orderable": false
         // }]
-        //buttons
-        dom: 'lBfrtip',
-        buttons: [
-            {  //copy
-                extend: 'copy',
-                text: '<i class="fas fa-clone"></i>',
-                className: 'btn btn-secondary',
-                titleAtr: 'Copy',
-
-                // Choose the columns you with to copy
-                exportOptions: {
-                    colums: [0, 1, 2, 3, 4, 5]
-                },
-            },
-
-            {  //excel
-                extend: 'excel',
-                text: '<i class="fas fa-file-excel"></i>',
-                className: 'btn btn-secondary',
-                titleAtr: 'Excel',
-
-                // Choose the columns you with to export to excel
-                exportOptions: {
-                    colums: [0, 1, 2, 3, 4, 5]
-                },
-            },
-
-            {  //print
-                extend: 'print',
-                text: '<i class="fas fa-print"></i>',
-                className: 'btn btn-secondary',
-                titleAtr: 'Print',
-
-                // Choose the columns you with to print
-                exportOptions: {
-                    colums: [0, 1, 2, 3, 4, 5]
-                },
-
-                // font size (when export to print)
-                customize: function ( win ) {
-                    $(win.document.body).css('font-size', '10pt')
-                    $(win.document.body).find('table')
-                        .addClass('compact')
-                        .css('font-size', 'inherit')
-                }
-            },
-
-            {  //pdf
-                extend: 'pdf',
-                text: '<i class="fas fa-file-pdf"></i>',
-                className: 'btn btn-secondary',
-                titleAtr: 'pdf',
-
-                // Choose the columns you with to copy
-                exportOptions: {
-                    colums: [0, 1, 2, 3, 4, 5]
-                },
-
-                // Center the table
-                tableHeader: {
-                    alignment: 'center'
-                },
-                // font size and optimization
-                customize: function (doc) {
-                    doc.styles.tableHeader.alignment = 'center'; //Header position
-                    doc.styles.tableBodyOdd.alignment = 'center'; //Header position 1 (grey color)
-                    doc.styles.tableBodyEven.alignment = 'center'; //Header position 1 (white color)
-                    doc.styles.tableHeader.fontSize = 7; //Header font-size
-                    doc.defaultStyle.fontSize = 6; //Body font-size
-                    // To get 100% width of the table
-                    doc.content[1].table.widths = Array(doc.content[1].table.body[1].length + 1).join('*').split('');
-             
-                }
-            },
-        ]
-
     });
     //Enable Searchbox Outside
     var newSearch = $("#example").DataTable();

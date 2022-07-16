@@ -39,12 +39,18 @@ body {
 }
 
 /* input search */
-.dataTable_filter {
+.dataTables_filter {
     margin-bottom: 10px !important;
     display: none;
 }
 
 /* Show enteries */
 .dataTables_length {
+    float: right !important;
+    margin-bottom: 10px !important;
+}
+
+/* Group buttons */
+.dt-buttons {
     margin-bottom: 10px !important;
 }
