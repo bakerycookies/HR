@@ -63,72 +63,8 @@
 
  <!-- Datatables script -->
  <script>
-    $(document).ready(function(){
-        $('#example thead tr')
-            .clone(true)
-            .addClass('filters')
-            .appendTo('#example thead');
-
-        var table = $('example').DataTable({
-            //Datatables configurations
-            paging: true,
-            pageLength: 3,
-            lengthChange: true,
-            autoWidth: true,
-            searching: true,
-            bInfo: true,
-            bSort: true,
-
-            //Disable colums with specific filter A to Z, Z to A
-            // "columnDefs": [{
-            //     "targets": [4, 5],
-            //     "orderable": false
-            // }]
-            initComplete: function() {
-                var api = this.api();
-
-                // set the columns you with filtering
-                api
-                    .columns([0, 1, 2, 3, 4, 5,])
-                    .eq
-                    each(function(colIdx){
-                        var cell = $('.filters th').eq(
-                            $(api.columns(colIdx).header()).index()
-                        );
-                        var title = $(cell).text();
-                        $(cell).html('<input type="text" placeholder="' + title + '"/>');
-
-                        $(
-                            'input',
-                            $('.filters th').eq($(api.columns(colIdx).header()).index)
-                        )
-                        .off('keyip change')
-                        .on('keyup change', function(e){
-                            e.stopPropagation();
-
-                            $(this).attr('title', $(this).val());
-                            var regerx = '({search})';
-
-                            var cursorPosition = this.selectionStart;
-
-                            api
-                                .columns(colIdx)
-                                .search(
-                                    this.value != ''
-                                        ? regerx.replace('{search}', '(((' + this.value + ')))')
-                                        : '',
-                                    this.value != '',
-                                    this.value == ''
-                                )
-                            .draw();
-
-                            $(this)
-                                .focus()[0]
-                                .setSelectionRange(cursorPosition, cursorPosition);
-                        });
-                    });
-            },
-            //Datatables configurations
+    $('#example').DataTable({
+        //Datatables configurations
         paging: true,
         pageLength: 3,
         lengthChange: true,
@@ -216,18 +152,15 @@
              
                 }
             },
-        ] 
-        });
-        //Enable Searchbox Outside
-        var newSearch = $("#example").DataTable();
-        $('#search').keyup(function() {
-            newSearch.search($(this).val()).draw();
-        })
-    });
+        ]
 
+    });
+    //Enable Searchbox Outside
+    var newSearch = $("#example").DataTable();
+    $('#search').keyup(function() {
+        newSearch.search($(this).val()).draw();
+    })
  </script>
  
 </body>
 </html>
-
-
