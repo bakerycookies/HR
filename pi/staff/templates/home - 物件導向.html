@@ -20,7 +20,17 @@
                 <th style="width: 15%;">Gender</th>
             </tr>
         </thead>
-        <!-- Jason (Response from backend) -->
+        <!-- Data from backend -->
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.occupation }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>{{ employee.gender }}</td>
+        </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock content %}

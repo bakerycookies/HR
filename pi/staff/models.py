@@ -16,3 +16,15 @@ class Employee(models.Model):
 
     def __str__(self):
         return self.name
+
+    # Jason
+    def get_data(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email,
+            'occupation': self.occupation,
+            'salary': self.salary,
+            'gender': self.gender,
+        }
+        
