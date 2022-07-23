@@ -23,4 +23,13 @@ urlpatterns = [
     path('', views.home, name='home'),
     # Jason Response
     path('jason/', views.employee_jason, name="employee_jason"),
+    # path to add employee
+    path('add_employee', views.add_employee, name="add_employee"),
+    # path to view employee data individually
+    path('employee/<str:employee_id>', views.employee, name="employee"),
+    # path to add employee
+    path('edit_employee', views.edit_employee, name="edit_employee"),
+    # path to add employee
+    path('delete_employee/<str:employee_id>', views.delete_employee, name="delete_employee"),
+    
 ]

@@ -1,3 +1,4 @@
+from imp import create_dynamic
 from django.db import models
 
 # Create your models here.
@@ -13,6 +14,8 @@ class Employee(models.Model):
     occupation = models.CharField(max_length=100)
     salary = models.CharField(max_length=100, default="")
     gender = models.CharField(max_length=100, null=True, choices=GENDER)
+    note =  models.TextField()
+    created_at =  models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
