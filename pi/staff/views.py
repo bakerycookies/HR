@@ -1,4 +1,5 @@
 from datetime import date
+from email import message
 from pyclbr import Function
 from urllib import response
 from django.shortcuts import render
@@ -21,7 +22,7 @@ def employee_jason(request):
     return JsonResponse(response)
 
 # Function to render the page with all produts
-def home(request):
+def add_employee(request):
     if request.method=="POST":
         if request.POST.get('name') \
             and request.POST.get('email') \
@@ -34,4 +35,39 @@ def home(request):
             employee.email = request.POST.get('email')
             employee.occupation = request.POST.get('occupation')
             employee.salary = request.POST.get('salary')
+            employee.gender = request.POST.get('gender')
             employee.note = request.POST.get('note')
+            employee.save()
+            messages.success(request, "Employee added successfully !!")
+            return HttpResponseRedirect("/")
+        else:
+            return render(request, 'add.html')
+
+# Function to view employee data individually
+def employee(request, employee_id):
+    employee = Employee.objects.get(id = employee_id)
+    if employee != None:
+        return render(request, "edit.html", {'employee:employee'})
+
+# Function to edit employee
+def edit_employee(request):
+    if request.method == "POST":
+        employee = Employee.objects.get(id = request.POST.get('id'))
+        if employee != None:
+            employee.name = request.POST.get('name')
+            employee.email = request.POST.get('email')
+            employee.occupation = request.POST.get('occupation')
+            employee.salary = request.POST.get('salary')
+            employee.gender = request.POST.get('gender')
+            employee.note = request.POST.get('note')
+            employee.save()
+            messages.success(request, "Employee update successfully !!")
+            return HttpResponseRedirect("/")
+
+# Function to delete Employee
+def delete_employee(request, employee_id) :
+    employee = Employee.objects.get(id = employee_id)
+    employee.delete()
+    message.success(request, "Employee delete successfully !!")  
+    return HttpResponseRedirect("/")  
+
